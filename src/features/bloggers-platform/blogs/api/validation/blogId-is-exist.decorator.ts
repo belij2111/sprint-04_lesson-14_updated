@@ -11,9 +11,7 @@ import { BlogsRepository } from '../../infrastructure/blogs.repository';
 @ValidatorConstraint({ name: 'BlogIdIsExist', async: true })
 @Injectable()
 export class BlogIdIsExistConstraint implements ValidatorConstraintInterface {
-  constructor(private readonly blogsRepository: BlogsRepository) {
-    console.log('blogsRepository: ', this.blogsRepository);
-  }
+  constructor(private readonly blogsRepository: BlogsRepository) {}
 
   async validate(value: any, args: ValidationArguments) {
     return await this.blogsRepository.blogIdIsExist(value);
